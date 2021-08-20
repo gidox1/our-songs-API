@@ -2,13 +2,17 @@
 
 class Action {
 
-
-  create() {
-    console.log("create called...")
+  constructor() {
+    this.logger = require('turbo-logger').createStream({});
   }
 
-  fetch() {
-    console.log('fetch called...')
+  create(req, res) {
+    this.logger.log("create called...", req.file);
+    return true
+  }
+
+  fetch(req, res) {
+    this.logger.log('fetch called...')
   }
 }
 
